@@ -8,6 +8,9 @@ function buyTicket() {
   if (ticketType.value == "inferior") {
     comprarInferior(ticketQuantity);
   }
+  if (ticketType.value == "superior") {
+    comprarSuperior(ticketQuantity);
+  }
 }
 
 function comprarInferior(ticketQuantity) {
@@ -20,6 +23,20 @@ function comprarInferior(ticketQuantity) {
   } else {
     inferiorQuantity -= ticketQuantity;
     document.getElementById("qtd-inferior").textContent = inferiorQuantity;
+    alert("Compra realizada com sucesso!");
+  }
+}
+
+function comprarSuperior(ticketQuantity) {
+  let superiorQuantity = parseInt(
+    document.getElementById("qtd-superior").textContent
+  );
+
+  if (ticketQuantity > superiorQuantity) {
+    alert("Quantidade para o tipo cadeira superior indisponível no momento!");
+  } else {
+    superiorQuantity -= ticketQuantity;
+    document.getElementById("qtd-superior").textContent = superiorQuantity;
     alert("Compra realizada com sucesso!");
   }
 }
