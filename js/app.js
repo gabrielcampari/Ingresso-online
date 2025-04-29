@@ -11,52 +11,52 @@ function buyTicket() {
   }
 
   if (ticketType.value == "pista") {
-    comprarPista(ticketQuantity);
+    buyTrack(ticketQuantity);
   } else if (ticketType.value == "inferior") {
-    comprarInferior(ticketQuantity);
+    buyLower(ticketQuantity);
   } else if (ticketType.value == "superior") {
-    comprarSuperior(ticketQuantity);
+    buyUpper(ticketQuantity);
   }
 }
 
-function comprarInferior(ticketQuantity) {
-  let inferiorQuantity = parseInt(
+function buyLower(ticketQuantity) {
+  let lowerQuantity = parseInt(
     document.getElementById("qtd-inferior").textContent
   );
 
-  if (ticketQuantity > inferiorQuantity) {
+  if (ticketQuantity > lowerQuantity) {
     alert("Quantidade para o tipo cadeira inferior indisponível no momento!");
   } else {
-    inferiorQuantity -= ticketQuantity;
-    document.getElementById("qtd-inferior").textContent = inferiorQuantity;
+    lowerQuantity -= ticketQuantity;
+    document.getElementById("qtd-inferior").textContent = lowerQuantity;
     alert("Compra realizada com sucesso!");
   }
 }
 
-function comprarSuperior(ticketQuantity) {
-  let superiorQuantity = parseInt(
+function buyUpper(ticketQuantity) {
+  let upperQuantity = parseInt(
     document.getElementById("qtd-superior").textContent
   );
 
-  if (ticketQuantity > superiorQuantity) {
+  if (ticketQuantity > upperQuantity) {
     alert("Quantidade para o tipo cadeira superior indisponível no momento!");
   } else {
-    superiorQuantity -= ticketQuantity;
-    document.getElementById("qtd-superior").textContent = superiorQuantity;
+    upperQuantity -= ticketQuantity;
+    document.getElementById("qtd-superior").textContent = upperQuantity;
     alert("Compra realizada com sucesso!");
   }
 }
 
-function comprarPista(ticketQuantity) {
-  let pistaQuantity = parseInt(
+function buyTrack(ticketQuantity) {
+  let trackQuantity = parseInt(
     document.getElementById("qtd-pista").textContent
   );
 
-  if (ticketQuantity > pistaQuantity) {
+  if (ticketQuantity > trackQuantity) {
     alert("Quantidade para o tipo pista indisponível no momento!");
   } else {
-    pistaQuantity -= ticketQuantity;
-    document.getElementById("qtd-pista").textContent = pistaQuantity;
+    trackQuantity -= ticketQuantity;
+    document.getElementById("qtd-pista").textContent = trackQuantity;
     alert("Compra realizada com sucesso!");
   }
 }
