@@ -2,6 +2,14 @@ function buyTicket() {
   let ticketQuantity = parseInt(document.getElementById("qtd").value);
   let ticketType = document.getElementById("tipo-ingresso");
 
+  if (isNaN(ticketQuantity) || ticketQuantity <= 0) {
+    alert(
+      "Não foi possível realizar a compra, por favor insira um valor válido!"
+    );
+
+    return;
+  }
+
   if (ticketType.value == "pista") {
     comprarPista(ticketQuantity);
   } else if (ticketType.value == "inferior") {
@@ -18,8 +26,6 @@ function comprarInferior(ticketQuantity) {
 
   if (ticketQuantity > inferiorQuantity) {
     alert("Quantidade para o tipo cadeira inferior indisponível no momento!");
-  } else if (ticketQuantity <= 0) {
-    alert("Não é possível comprar uma quantidade negativa de ingressos!");
   } else {
     inferiorQuantity -= ticketQuantity;
     document.getElementById("qtd-inferior").textContent = inferiorQuantity;
@@ -34,8 +40,6 @@ function comprarSuperior(ticketQuantity) {
 
   if (ticketQuantity > superiorQuantity) {
     alert("Quantidade para o tipo cadeira superior indisponível no momento!");
-  } else if (ticketQuantity <= 0) {
-    alert("Não é possível comprar uma quantidade negativa de ingressos!");
   } else {
     superiorQuantity -= ticketQuantity;
     document.getElementById("qtd-superior").textContent = superiorQuantity;
@@ -50,8 +54,6 @@ function comprarPista(ticketQuantity) {
 
   if (ticketQuantity > pistaQuantity) {
     alert("Quantidade para o tipo pista indisponível no momento!");
-  } else if (ticketQuantity <= 0) {
-    alert("Não é possível comprar uma quantidade negativa de ingressos!");
   } else {
     pistaQuantity -= ticketQuantity;
     document.getElementById("qtd-pista").textContent = pistaQuantity;
