@@ -4,11 +4,9 @@ function buyTicket() {
 
   if (ticketType.value == "pista") {
     comprarPista(ticketQuantity);
-  }
-  if (ticketType.value == "inferior") {
+  } else if (ticketType.value == "inferior") {
     comprarInferior(ticketQuantity);
-  }
-  if (ticketType.value == "superior") {
+  } else if (ticketType.value == "superior") {
     comprarSuperior(ticketQuantity);
   }
 }
@@ -20,6 +18,8 @@ function comprarInferior(ticketQuantity) {
 
   if (ticketQuantity > inferiorQuantity) {
     alert("Quantidade para o tipo cadeira inferior indisponível no momento!");
+  } else if (ticketQuantity <= 0) {
+    alert("Não é possível comprar uma quantidade negativa de ingressos!");
   } else {
     inferiorQuantity -= ticketQuantity;
     document.getElementById("qtd-inferior").textContent = inferiorQuantity;
@@ -34,6 +34,8 @@ function comprarSuperior(ticketQuantity) {
 
   if (ticketQuantity > superiorQuantity) {
     alert("Quantidade para o tipo cadeira superior indisponível no momento!");
+  } else if (ticketQuantity <= 0) {
+    alert("Não é possível comprar uma quantidade negativa de ingressos!");
   } else {
     superiorQuantity -= ticketQuantity;
     document.getElementById("qtd-superior").textContent = superiorQuantity;
@@ -48,6 +50,8 @@ function comprarPista(ticketQuantity) {
 
   if (ticketQuantity > pistaQuantity) {
     alert("Quantidade para o tipo pista indisponível no momento!");
+  } else if (ticketQuantity <= 0) {
+    alert("Não é possível comprar uma quantidade negativa de ingressos!");
   } else {
     pistaQuantity -= ticketQuantity;
     document.getElementById("qtd-pista").textContent = pistaQuantity;
